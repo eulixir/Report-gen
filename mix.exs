@@ -1,9 +1,9 @@
-defmodule ReportGen.MixProject do
+defmodule GenReport.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :report_gen,
+      app: :gen_report,
       version: "0.1.0",
       elixir: "~> 1.11",
       start_permanent: Mix.env() == :prod,
