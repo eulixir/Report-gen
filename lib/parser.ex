@@ -18,7 +18,7 @@ defmodule GenReport.Parser do
   def parse_file(filename) do
     filename
     |> File.stream!()
-    |> Stream.map(fn line -> parse_line(line) end)
+    |> Enum.map(&parse_line/1)
   end
 
   defp parse_line(line) do
@@ -28,11 +28,13 @@ defmodule GenReport.Parser do
     |> List.update_at(0, &String.downcase/1)
     |> List.update_at(1, &String.to_integer/1)
     |> List.update_at(2, &String.to_integer/1)
-    |> List.update_at(3, fn month ->
-      month = String.to_integer(month)
-      @months[month]
-    end)
+    |> List.update_at(3, &parse_month/1)
     |> List.update_at(4, &String.to_integer/1)
+  end
+
+  defp parse_month(month) do
+    month = String.to_integer(month);
+    @months[month]
   end
 
 end
