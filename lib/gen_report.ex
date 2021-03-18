@@ -24,10 +24,7 @@ defmodule GenReport do
     end)
   end
 
-  defp hours_acc do
-    %{"all_hours" => %{}}
-    |> Map.put("all_hours", acc_name_map_gen(0))
-  end
+  defp hours_acc(), do: %{"all_hours" => %{}} |> Map.put("all_hours", acc_name_map_gen(0))
 
   defp acc_name_map_gen(value), do: Enum.into(@names, %{}, &{&1, value})
 end
