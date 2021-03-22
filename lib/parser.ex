@@ -1,5 +1,4 @@
 defmodule GenReport.Parser do
-
   @months %{
     1 => "janeiro",
     2 => "fevereiro",
@@ -33,8 +32,7 @@ defmodule GenReport.Parser do
   end
 
   defp parse_month(month) do
-    month = String.to_integer(month);
+    month = String.to_integer(month)
     @months[month]
   end
-
 end
