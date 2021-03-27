@@ -15,5 +15,6 @@ defmodule GenReport.GetHours do
     }
   end
 
-  defp sum_values(map, id, date, hours), do: put_in(map[id], Map.put(map[id], date, map[id][date] + hours))
+  defp sum_values(map, id, date, hours),
+    do: put_in(map[id], Map.put(map[id], date, map[id][date] + hours))
 end
